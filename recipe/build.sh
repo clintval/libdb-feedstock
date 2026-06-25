@@ -7,8 +7,7 @@ cp $BUILD_PREFIX/share/gnuconfig/config.* ./lang/sql/sqlite
 cp $BUILD_PREFIX/share/gnuconfig/config.* ./lang/sql/sqlite/autoconf
 
 if [[ $(uname) == Darwin ]]; then
-  export CC=clang
-  export CXX=clang++
+  # Leave CC/CXX to conda's activation; pinning clang builds x86_64 on osx-arm64.
   export LDFLAGS="-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib -headerpad_max_install_names $LDFLAGS"
   export LIBRARY_SEARCH_VAR=DYLD_FALLBACK_LIBRARY_PATH
   export MACOSX_DEPLOYMENT_TARGET="10.9"
