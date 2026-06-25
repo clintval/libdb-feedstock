@@ -34,6 +34,7 @@ requirements:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
   host:
 
 outputs:
@@ -54,6 +55,7 @@ outputs:
         # compilers are to ensure that variants are captured
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
       run:
         - {{ pin_subpackage('libdb', exact=True) }}
     test:
